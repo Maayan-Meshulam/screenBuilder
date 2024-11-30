@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>screen builder </title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <header>
+        <p>
+            <span onclick="showElementDesign()">עיצוב ויצירת אלמנט</span>
+            <span onclick="showDesignBody()">עיצוב הדף</span>
+        </p>
+    </header>
+
+    <div id="aboveContainer">
+        
+        <div id="sideElementor">
+
+            <div id="opening">
+                <h1>בונה מסך</h1>
+                <p>כאן תוכלו ליצור אתר ללא ידע בתכנות !</p>
+            </div>
+
+            <div id="contentSide">
+                <div id="chooseElement">
+                    <div class="indideflex">
+                    <label>בחירת אלמנט </label>
+                    <select name="" id="selectElemntId" style="text-align: right;">
+                        <option value="-1" style="text-align: center;">בחר</option>
+                        <optgroup label="תוכן">
+                            <option value="div">מיכל - איזור תוכן</option>
+                            <option value="p">פסקה</option>
+                            <option value="span">מיכל פנימי</option>
+                        </optgroup>
+                        <optgroup label="כותרות">
+                            <option value="h1">כותרת 1</option>
+                            <option value="h2">כותרת 2</option>
+                            <option value="h3">כותרת 3</option>
+                            <option value="h4">כותרת 4</option>
+                            <option value="h5">כותרת 5</option>
+                            <option value="h6">כותרת 6</option>
+                        </optgroup>
+                    </select>
+                </div>
+    
+                <hr>
+    
+                <div id="chooseBgColor">
+                    <label>צבע רקע</label>
+                    <input type="color" value="#ffffff">
+                </div>
+    
+                <hr>
+    
+                <div id="chooseWidth">
+                    <label>רוחב</label>
+                    <input type="number">
+                    <span style="display: block; font-size: 10px;">ברירת מחדל: 100%</span>
+                </div>
+                            
+                <div id="chooseHeight">
+                    <label>גובה</label>
+                    <input type="number">
+                </div>   
+
+                <div id="chooseBorder">
+                    <label>מסגרת</label>
+                    <label class="inLable">עובי</label>
+                    <input type="number" id="thicknessBorderId">
+                    <label class="inLable">סגנון</label>
+                    <select id="borderStyleId">
+                        <option value="-1">בחר</option>
+                        <option value="solid">solid</option>
+                        <option value="dotted">dotted</option>
+                    </select>
+                    <br>
+                    <label class="inLable">צבע</label>
+                    <input type="color" id="borderColorId">
+                </div>
+
+            </div>
+    
+                <hr>
+            <div class="insideFlex">
+                
+    
+                <div id="chooseBorderRadius">
+                    <label>עיגול פינות </label>
+                    <label class="inLable">TL</label>
+                    <input type="number" id="borderTopLeft">
+                    <label class="inLable">TR</label>
+                    <input type="number" id="borderTopRight">
+                    <br>
+                    <label class="inLable">BR</label>
+                    <input type="number" id="borderBottomRight">
+                    <label class="inLable">BL</label>
+                    <input type="number" id="borderBottomLeft">
+                </div>
+    
+                <hr>
+    
+                <div id="choosePadding">
+                    <label>ריווח פנימי</label>
+                    <label class="inLable">T</label>
+                    <input type="number" id="paddingTop">
+                    <label class="inLable">R</label>
+                    <input type="number"  id="paddingRight">
+                    <br>
+                    <label class="inLable">B</label>
+                    <input type="number" id="paddingBottom">
+                    <label class="inLable">L</label>
+                    <input type="number" id="paddingLeft">
+                </div>
+    
+                <div id="chooseMargin">
+                    <label>ריווח חיצוני</label>
+                    <label class="inLable">T</label>
+                    <input type="number" id="marginTop">
+                    <label class="inLable">R</label>
+                    <input type="number" id="marginRight">
+                    <br>
+                    <label class="inLable">B</label>
+                    <input type="number" id="marginBottom">
+                    <label class="inLable">L</label>
+                    <input type="number" id="marginLeft">
+                </div>
+    
+                <hr> 
+    
+                <div id="chooseSadowBox">
+                    <label>צל לאלמנט</label>
+                    <label class="inLable">ציר X</label>
+                    <input type="number" id="sadowBoxX">
+                    <label class="inLable">ציר Y</label>
+                    <input type="number" id="sadowBoxY">
+                    <br>
+                    <label class="inLable">טשטוש</label>
+                    <input type="number" id="sadowBoxBlur">
+                    <label class="inLable">התפשטות</label>
+                    <input type="number" id="sadowBoxSpread">
+                    <br>
+                    <label class="inLable">צבע</label>
+                    <input type="color" id="sadowBoxColor">
+                </div>     
+            </div>
+                <hr>
+            <div  class="insideFlex">
+                <div id="chooseContent">
+                    <label>תוכן</label>
+                    <textarea name="" id="contentId" placeholder="some text..."></textarea>
+                </div>
+    
+                <hr> 
+    
+                <div id="chooseFontSize">
+                    <label>גודל הטקסט </label>
+                    <input type="number" id="textSizeId">
+                </div>
+    
+                <div id="chooseTextColor">
+                    <label>צבע טקסט</label>
+                    <input type="color" id="colorSizeId">
+                </div>
+    
+                <div id="chooseAlignmentText">
+                    <label>יישור טקסט</label>
+                    <select name="" id="selectAlignmentText">
+                        <option value="right">ימין</option>
+                        <option value="center">מרכז</option>
+                        <option value="left">שמאל</option>
+                        <option value="justify">אחיד</option>
+                    </select>
+                </div>
+    
+                <div id="chooseSadowText">
+                    <label>צל לטקסט</label>
+                    <label class="inLable">ציר X</label>
+                    <input type="number" id="sadowTextX">
+                    <label class="inLable">ציר Y</label>
+                    <input type="number" id="sadowTextY">
+                    <br>
+                    <label class="inLable">טשטוש</label>
+                    <input type="number" id="sadowTextBlur">
+                    <label class="inLable">צבע</label>
+                    <input type="color" id="sadowTextColor">
+                </div>
+            </div>
+                <hr>
+            <div class="insideFlex">
+                 <div id="chooseDefinitions">
+                    <label>הגדרות</label>
+                    <div style="display: flex; justify-content: center; gap: 10px;flex-wrap: wrap;">
+                        <input type="text" id="idInput" placeholder="מזהה">
+                        <textarea id="titleInput" placeholder="מידע נוסף על האלמנט"></textarea>
+                    </div>
+                 </div>
+    
+                <div id="chooseAction">
+                    <button onclick="takingChoosenValues()" class="btnSide">Add</button>
+                    <button class="btnSide" onclick="savingInSession()">save</button>
+                    <button onclick="deleteBored()" class="btnSide">delete</button>
+                </div>
+            </div>
+        </div>
+
+            <!-- עיצוב הדף עצמו - אלמנט הגוף -->
+             <div id="degineBody">
+                <div id="chooseBgColorBody">
+                    <label>צבע רקע</label>
+                    <input type="color" value="#ffffff" id="colorBodyId">
+                </div>
+    
+                <div id="choosePaddingBody">
+                    <label>ריווח פנימי</label>
+                    <label class="inLable">T</label>
+                    <input type="number" id="paddingTopBody">
+                    <label class="inLable">R</label>
+                    <input type="number"  id="paddingRightBody">
+                    <br>
+                    <label class="inLable">B</label>
+                    <input type="number" id="paddingBottomBody">
+                    <label class="inLable">L</label>
+                    <input type="number" id="paddingLeftBody">
+                </div>
+    
+                <div id="chooseMarginBody">
+                    <label>ריווח חיצוני</label>
+                    <label class="inLable">T</label>
+                    <input type="number" id="marginTopBody">
+                    <label class="inLable">R</label>
+                    <input type="number" id="marginRightBody">
+                    <br>
+                    <label class="inLable">B</label>
+                    <input type="number" id="marginBottomBody">
+                    <label class="inLable">L</label>
+                    <input type="number" id="marginLeftBody">
+                </div>
+
+                <div id="chooseActionBody">
+                    <button onclick="bodyValueSaving()" class="btnSide">contain</button>
+                    <button class="btnSide" onclick="savingInSession()">save</button>
+                </div>
+
+             </div>
+
+        </div>
+        
+        <div id="containerScreen">
+            <div id="screenBox">
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
