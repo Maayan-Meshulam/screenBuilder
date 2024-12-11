@@ -9,7 +9,6 @@ onload = ()=>{
         if(answer){
             document.getElementById('screenBox').innerHTML = sessionStorage.getItem('screen');//נכניס לאלמנט המסמך את כל הערכים כילדים שלו  
             let arrAtr = JSON.parse(sessionStorage.getItem('atrScreen')); // נשלוף את מערך הערכים מזיכרון ונהפוך
-            console.log(arrAtr);
             if(arrAtr != null){
                 //נחיל את העיצוב על אלמנט המסמך
                 document.getElementById('screenBox').style.backgroundColor = arrAtr[0];
@@ -25,8 +24,7 @@ onload = ()=>{
 }
 
 
-// אם לא נאתחל פה ונאתחל רק מהסיאסאס אז בלחיצה הראשונה הוא לא יזהה את מה שיש שם .
-//TODO: לבדוק את זה????
+//אתחול העיצוב
 document.getElementById('degineBody').style.display = 'none'; 
 document.getElementById('contentSide').style.display = "none"; 
 
@@ -53,11 +51,9 @@ function showDesignBody(){
     document.getElementById('contentSide').style.display = "none"; //נסגור את התפריט השני
 
     if(document.getElementById('degineBody').style.display == 'none'){
-        console.log(1);
         document.getElementById('degineBody').style.display = 'block';        
     }
     else{
-        console.log(2);
         document.getElementById('degineBody').style.display = 'none';        
     }
 }
@@ -66,7 +62,6 @@ function showDesignBody(){
 
 //כאשר יכניסו טקסט יפתחו אופציות עיצוב נוספות
 document.getElementById('contentId').addEventListener('input', (event) => {
-    console.log(event.target.value);
     
     //במידה וימחקו את הטקסט נוריד את אופציות העיצוב
     if(event.target.value == ''){
@@ -90,7 +85,6 @@ function bodyValueSaving(){
 
         //אם אחד מהשדות של הכיוונים לא מולאו נשים שם 0 - ריווח חיצוני, ריווח פנימי ויעיגול פינות
         let inputsPadding = document.getElementById('choosePaddingBody').querySelectorAll('input');
-        console.log(inputsPadding);
         for(let i = 0; i < inputsPadding.length; i++)
             if(inputsPadding[i].value == '')
                 inputsPadding[i].value = 0;       
@@ -107,8 +101,6 @@ function bodyValueSaving(){
         let paddingB = document.getElementById('paddingBottomBody').value;
 
         padding = paddingT + 'px ' + paddingR + 'px ' + paddingB + 'px ' + paddingL + 'px';
-
-        console.log(paddingT);
         
         //ריווח חיצוני
         let marginT = document.getElementById('marginTopBody').value;
@@ -116,13 +108,10 @@ function bodyValueSaving(){
         let marginL = document.getElementById('marginLeftBody').value;
         let marginB = document.getElementById('marginBottomBody').value;
 
-        console.log(marginL, marginB);      
-
         margin = marginT + 'px ' + marginR + 'px ' + marginB + 'px ' + marginL + 'px';
 
         //הוספת העיצוב לאלמנט הגוף
         let semiBody = document.getElementById('screenBox');
-        console.log(bgColor)
         semiBody.style.backgroundColor = bgColor;
         semiBody.style.padding = padding;
         semiBody.style.margin = margin;
@@ -177,7 +166,6 @@ function takingChoosenValues(){
 
         //אם אחד מהשדות של הכיוונים לא מולאו נשים שם 0 - ריווח חיצוני, ריווח פנימי ויעיגול פינות
         let inputsPadding = document.getElementById('choosePadding').querySelectorAll('input');
-        console.log(inputsPadding);
         for(let i = 0; i < inputsPadding.length; i++)
             if(inputsPadding[i].value == '')
                 inputsPadding[i].value = 0;       
@@ -199,8 +187,6 @@ function takingChoosenValues(){
         let borderRadiusBR = document.getElementById('borderBottomRight').value;
         let borderRadiusBL = document.getElementById('borderBottomLeft').value;
         borderRadius = borderRadiusTL + 'px ' + borderRadiusBR + 'px ' + borderRadiusBR + 'px ' + borderRadiusBL + 'px';
-
-        console.log(borderRadiusTL, borderRadiusTR, borderRadiusBR, borderRadiusBL);
         
         //ריווח פנימי
         let paddingT = document.getElementById('paddingTop').value;
@@ -209,16 +195,12 @@ function takingChoosenValues(){
         let paddingB = document.getElementById('paddingBottom').value;
 
         padding = paddingT + 'px ' + paddingR + 'px ' + paddingB + 'px ' + paddingL + 'px';
-
-        console.log(paddingT);
         
         //ריווח חיצוני
         let marginT = document.getElementById('marginTop').value;
         let marginR = document.getElementById('marginRight').value;
         let marginL = document.getElementById('marginLeft').value;
         let marginB = document.getElementById('marginBottom').value;
-
-        console.log(marginL, marginB);
         
 
         margin = marginT + 'px ' + marginR + 'px ' + marginB + 'px ' + marginL + 'px';
@@ -238,10 +220,8 @@ function takingChoosenValues(){
 //פונקציה שיוצרת את האלמנט
 function createElemnt(){
     let elementObg = document.createElement(`${element}`); //יצירת האלמנט
-    console.log(elementObg);
     
     //הוספה של כל התכונות לאלמנט
-    //TODO: אני כאילו מסתמכת על זה שהמשתנה לא יהיה נכון תחבירית ואז התכונה לא תתווסף, האם זה נכון?????
     elementObg.style.width = width + 'px';
     elementObg.style.height = height + 'px';
     elementObg.style.color = textColor;
@@ -301,7 +281,6 @@ function resetInputs(){
        //איפוס התיבות קלט והבחירה
         //איפוס של כל הקלטים מסוג צבע 
        let inputsColor = document.querySelectorAll('input[type="color"]');
-       console.log(inputsColor);
        for(let i = 0; i < inputsColor.length; i++)
             inputsColor[i].value = '#000000';
 
@@ -364,9 +343,7 @@ function rgbToHexManual(r, g, b) {
 
 //פונקציה שאחראית על מחיקת הלוח
 function deleteBored(){
-    let screenBody = document.getElementById('screenBox').children;
-    console.log(screenBody);
-    
+    let screenBody = document.getElementById('screenBox').children;    
     let lengthMekori = screenBody.length;//נשמור את האורך המקורי
    for(let i = 0; i < lengthMekori; i++)
         screenBody[0].remove();
@@ -378,7 +355,6 @@ function deleteBored(){
 //פונקציה ששומרת את הדף בזיכרון
 function savingInSession(){    
     //נבדוק שיש אופציית זיכרון בדפדפן
-    console.log(Storage);
     if(Storage != undefined){
         let childrenScreen = document.getElementById('screenBox').innerHTML
         let screenStyle = getComputedStyle(document.getElementById('screenBox'));
@@ -389,6 +365,5 @@ function savingInSession(){
         
         sessionStorage.setItem('atrScreen', JSON.stringify(attrScreen)); //נשמור את עיצוב הדף עצמו
         sessionStorage.setItem('screen', childrenScreen); //נשמור את כל האלמנטים שנוספו למסך כסטרינג
-        console.log(sessionStorage.getItem('screen'));
     }
 }
